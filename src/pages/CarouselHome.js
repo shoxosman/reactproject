@@ -10,8 +10,8 @@ const CarouselHome = () => {
             alt="First slide"
           />
           <Carousel.Caption>
-            <h1>First slide label</h1>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h1>Say it with flowers</h1>
+            <p>Send fresh flowers online on the same day in slemanyah</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>

@@ -1,24 +1,24 @@
 import { Card, Button } from "react-bootstrap";
-const SingleCard = () => {
+const BirthdayCard = () => {
   const cardInfo = [
     {
-      title: "Autumn Arrangement",
-      body: "Send this incredibly appealing autumn arrangement to a special someone in your life! Welcome the fall season with bright classic colors and warmth. Perfect for any day of the week or a special seasonal holiday, this floral arrangement is sure to bring a smile to their face!",
-      img: "https://fyf.tac-cdn.net/images/products/large/TFL11-2.jpg?auto=webp&quality=80&width=590",
-      price: 30.99,
+      title: "Red Roses w/ Chocolates & Bear",
+      body: "Go over the top with a romantic gift that is sure to please the one you love. The One Dozen Long Stemmed Red Rose bouquet is delivered with an adorable plush teddy bear and box of chocolates. Why just send roses when you can make the gift extra special by adding on a teddy bear and chocolates, for a complete floral gift package. We invite you to customize your gift by choosing an I Love You vase, or by creating a custom photo vase to be delivered with the rose bouquet. Don't wait!",
+      img: "https://fyf.tac-cdn.net/images/products/large/F-503.jpg?auto=webp&quality=80&width=590",
+      price: 39.99,
       Text: "Same Day Delivary",
     },
     {
-      title: "Southern Peach Bouquet",
-      body: "Looking for a modern twist on an old classic - this bouquet is just what you need! The Southern Peach Rose Bouquet brings you a subtle and sophisticated look with a bit of modern style. Charming and easy on the eyes, with beautiful pastel tones, this bouquet brings a room to life with it's artful appearance. Peach roses surrounded by white lilies, peach carnations and greenery - but the best part? All of this surrounds a green echeveria succulent. The fun new accessory to any bouquet, this delicate succulent adds a modern touch and is guaranteed to delight! This bouquet measures 15 1/4",
-      img: "https://fyf.tac-cdn.net/images/products/large/TEV55-6.jpg?auto=webp&quality=80&width=590",
+      title: "Rose & Lily And Balloon",
+      body: "Send your best birthday wishes with this lovely bouquet of Asiatic lilies, waxflower, alstroemeria, roses and a birthday mylar balloon. Delivered in a clear glass fluted vase, this bouquet makes a wonderful gift they'll not soon forget.",
+      img: "https://fyf.tac-cdn.net/images/products/large/BF89-11K-BBU.jpg?auto=webp&quality=80&width=590",
       price: 33.99,
       Text: "Same Day Delivary",
     },
     {
-      title: "You're In My Heart",
-      body: "Let your love bloom with this beautiful You're In My Heart flower bouquet. This all red flower arrangement is hand-arranged by a local florist near you with classic red roses, along with red carnations. All the red flowers make this gift a wonderful way of letting someone in your life know they are important to you and you appreciate all the love they give you. The red roses and carnations are delivered in a clear glass vase with a red ribbon tied around the center.",
-      img: "https://fyf.tac-cdn.net/images/products/large/BF116-11KM.jpg?auto=webp&quality=80&width=590",
+      title: "Blue Skies Bouquet",
+      body: "Celebrate their birthday with a stunning floral bouquet that is hand arranged by one of our top notch local florists. This beautiful arrangement included white Asiatic lilies, yellow roses, blue delphinium and purple Monte Casino blooms...all creatively designed in a clear fluted vase with a blue satin ribbon and delivered with a birthday mylar balloon.",
+      img: "https://fyf.tac-cdn.net/images/products/large/BF216-11KM-BBU.jpg?auto=webp&quality=80&width=590",
       price: 39.99,
       Text: "Same Day Delivary",
     },
@@ -87,4 +87,5 @@ const SingleCard = () => {
   };
   return <div classsName="cardss">{cardInfo.map(renderCard)}</div>;
 };
-export default SingleCard;
+
+export default BirthdayCard;

@@ -32,18 +32,14 @@ export default function TheNavbar() {
               menuVariant="light"
               className="navbar-bg"
             >
-              <NavDropdown.Item as={Link} to="/products/*">
+              <NavDropdown.Item as={Link} to="/products/Birthday">
                 Birthday
               </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/products/*">
+              <NavDropdown.Item as={Link} to="/products/Wedding">
                 Wedding
               </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/products/*">
+              <NavDropdown.Item as={Link} to="/products/Graduation">
                 Graduation
-              </NavDropdown.Item>
-
-              <NavDropdown.Item as={Link} to="/products/*">
-                Funeral
               </NavDropdown.Item>
             </NavDropdown>
             <NavDropdown

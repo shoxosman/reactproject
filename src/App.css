@@ -3,15 +3,17 @@
 body {
   padding: 0;
   margin: 0%;
-  font-family: "Petemoss", cursive;
-  font-size: 1.7rem;
-  font-weight: 800;
+
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 h1 {
   font-weight: 800;
+  font-family: "Petemoss", cursive;
 }
 h2 {
   font-weight: 800;
+  font-family: "Petemoss", cursive;
 
   font-size: 3rem;
 }
@@ -32,4 +34,8 @@ hr {
 .card-button {
   background-color: #cc99ff !important;
   border-color: #9c5bdd;
+}
+.cardss {
+  display: flex;
+  flex-direction: row;
 }

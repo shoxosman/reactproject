@@ -1,5 +1,5 @@
 import { Card, Button } from "react-bootstrap";
-const SingleCard = () => {
+const GraduationCard = () => {
   const cardInfo = [
     {
       title: "Autumn Arrangement",
@@ -87,4 +87,5 @@ const SingleCard = () => {
   };
   return <div classsName="cardss">{cardInfo.map(renderCard)}</div>;
 };
-export default SingleCard;
+
+export default GraduationCard;

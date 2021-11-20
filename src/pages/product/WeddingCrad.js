@@ -1,18 +1,18 @@
 import { Card, Button } from "react-bootstrap";
-const SingleCard = () => {
+const WeddingCard = () => {
   const cardInfo = [
     {
-      title: "Autumn Arrangement",
-      body: "Send this incredibly appealing autumn arrangement to a special someone in your life! Welcome the fall season with bright classic colors and warmth. Perfect for any day of the week or a special seasonal holiday, this floral arrangement is sure to bring a smile to their face!",
-      img: "https://fyf.tac-cdn.net/images/products/large/TFL11-2.jpg?auto=webp&quality=80&width=590",
-      price: 30.99,
+      title: "Pearled Passions",
+      body: "A beautiful combination of stock, roses, tulips, orchids, carnations and sprengeri are gathered with delicate pearl strands to create the perfect bridesmaid bouquet. Hand created by a florist for delivery.",
+      img: "https://fyf.tac-cdn.net/images/products/large/BN78-11J.jpg?auto=webp&quality=80&width=590",
+      price: 41.99,
       Text: "Same Day Delivary",
     },
     {
-      title: "Southern Peach Bouquet",
-      body: "Looking for a modern twist on an old classic - this bouquet is just what you need! The Southern Peach Rose Bouquet brings you a subtle and sophisticated look with a bit of modern style. Charming and easy on the eyes, with beautiful pastel tones, this bouquet brings a room to life with it's artful appearance. Peach roses surrounded by white lilies, peach carnations and greenery - but the best part? All of this surrounds a green echeveria succulent. The fun new accessory to any bouquet, this delicate succulent adds a modern touch and is guaranteed to delight! This bouquet measures 15 1/4",
-      img: "https://fyf.tac-cdn.net/images/products/large/TEV55-6.jpg?auto=webp&quality=80&width=590",
-      price: 33.99,
+      title: "Forever Yours Altar Arrangements",
+      body: "Create a spectacular altar scape with break away arrangement of green roses, orchids, hydrangea, snapdragons, gladiolus, hypericum, trachelium, amaranthus, and aspidistra.",
+      img: "https://fyf.tac-cdn.net/images/products/large/BN87-11J.jpg?auto=webp&quality=80&width=590",
+      price: 100.99,
       Text: "Same Day Delivary",
     },
     {
@@ -87,4 +87,5 @@ const SingleCard = () => {
   };
   return <div classsName="cardss">{cardInfo.map(renderCard)}</div>;
 };
-export default SingleCard;
+
+export default WeddingCard;
