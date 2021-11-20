@@ -7,11 +7,17 @@ import { Link } from "react-router-dom";
 
 export default function TheNavbar() {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar
+      collapseOnSelect
+      expand="lg"
+      className="navbar-bg"
+      bg="light"
+      variant="light"
+    >
       <Container>
         {/* as={Link} means use react-router's Link component under the hood */}
         <Navbar.Brand as={Link} to="/">
-          Bit Commerce
+          <h1>Aster</h1>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -19,28 +25,46 @@ export default function TheNavbar() {
             <Nav.Link as={Link} to="/">
               Home
             </Nav.Link>
-            <Nav.Link as={Link} to="/products">
-              Products
-            </Nav.Link>
+
             <NavDropdown
               id="nav-dropdown-dark-example"
-              title="Categories"
-              menuVariant="dark"
+              title="Occasions"
+              menuVariant="light"
+              className="navbar-bg"
             >
-              <NavDropdown.Item as={Link} to="/categories/*">
-                Category 1
+              <NavDropdown.Item as={Link} to="/products/*">
+                Birthday
               </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/categories/*">
-                Category 2
+              <NavDropdown.Item as={Link} to="/products/*">
+                Wedding
               </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/categories/*">
-                Category 3
+              <NavDropdown.Item as={Link} to="/products/*">
+                Graduation
               </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item as={Link} to="/categories">
-                All Categories
+
+              <NavDropdown.Item as={Link} to="/products/*">
+                Funeral
               </NavDropdown.Item>
             </NavDropdown>
+            <NavDropdown
+              id="nav-dropdown-dark-example"
+              title="Products"
+              menuVariant="light"
+              className="navbar-bg"
+            >
+              <NavDropdown.Item as={Link} to="/categories/*">
+                Flowers
+              </NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/categories/*">
+                Ballons
+              </NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/categories/*">
+                Tedy bears
+              </NavDropdown.Item>
+            </NavDropdown>
+            <Nav.Link as={Link} to="/about">
+              About
+            </Nav.Link>
           </Nav>
 
           <Nav>

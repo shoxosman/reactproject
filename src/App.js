@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import Categories from "./pages/Categories";
 import Products from "./pages/Products";
 import Register from "./pages/Register";
+import About from "./pages/About";
 
 import "./App.css";
 
@@ -22,6 +23,7 @@ function App() {
 
         <Route path="/categories" element={<Categories />} />
         <Route path="/products" element={<Products />} />
+        <Route path="/about" element={<About />} />
         {/* if the URL is /login  , render the Login component */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
