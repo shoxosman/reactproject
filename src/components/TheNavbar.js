@@ -4,8 +4,11 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link } from "react-router-dom";
-
+import { FaCartPlus } from "react-icons/fa";
+import { useSelector } from "react-redux";
 export default function TheNavbar() {
+  const cart = useSelector((state) => state.cart.value);
+
   return (
     <Navbar
       collapseOnSelect
@@ -13,6 +16,7 @@ export default function TheNavbar() {
       className="navbar-bg"
       bg="light"
       variant="light"
+      fixed="top"
     >
       <Container>
         {/* as={Link} means use react-router's Link component under the hood */}
@@ -48,13 +52,13 @@ export default function TheNavbar() {
               menuVariant="light"
               className="navbar-bg"
             >
-              <NavDropdown.Item as={Link} to="/categories/*">
+              <NavDropdown.Item as={Link} to="/categories/Flowers">
                 Flowers
               </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/categories/*">
-                Ballons
+              <NavDropdown.Item as={Link} to="/categories/Balloons">
+                Balloons
               </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/categories/*">
+              <NavDropdown.Item as={Link} to="/categories/Tedybears">
                 Tedy bears
               </NavDropdown.Item>
             </NavDropdown>
@@ -64,6 +68,9 @@ export default function TheNavbar() {
           </Nav>
 
           <Nav>
+            <Nav.Link as={Link} to="/Cart">
+              {cart.length} <FaCartPlus style={{ fontSize: "2rem" }} />
+            </Nav.Link>
             <Nav.Link as={Link} to="/login">
               login
             </Nav.Link>

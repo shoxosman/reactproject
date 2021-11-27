@@ -1,5 +1,18 @@
-import { Card, Button } from "react-bootstrap";
-const BirthdayCard = () => {
+import React from "react";
+import { useParams } from "react-router";
+import { Button } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { addCart } from "../features/TheCardsSlice";
+import useSound from "use-sound";
+import { useState } from "react";
+const BirthdayCardDetail = () => {
+  const [disable, setDisable] = useState(false);
+  const dispatch = useDispatch();
+
+  const [play] = useSound(
+    "http://codeskulptor-demos.commondatastorage.googleapis.com/pang/pop.mp3"
+  );
+  let { name } = useParams();
   const cardInfo = [
     {
       title: "Red Roses w/ Chocolates & Bear",
@@ -65,27 +78,42 @@ const BirthdayCard = () => {
       Text: "Same Day Delivary",
     },
   ];
-
-  const renderCard = (card, index) => {
-    return (
-      <div className=" mt-5">
-        <div>
-          <Card style={{ width: "20rem" }}>
-            <Card.Img variant="top" src={card.img} />
-            <Card.Body>
-              <Card.Title>{card.title}</Card.Title>
-              <Card.Text>${card.price}</Card.Text>
-              <Card.Text>{card.Text}</Card.Text>
-              <Button className="card-button" variant="primary">
-                Read More
-              </Button>
-            </Card.Body>
-          </Card>
+  let product = cardInfo.filter((product) => {
+    return product.title === name;
+  });
+  return (
+    <div className="container home">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-lg-6 col-xl-6 mt-5">
+            <br />
+            <h2>{product[0].title}</h2>
+            <p>{product[0].body}</p>
+            <h3>${product[0].price} </h3>
+            <h3>{product[0].Text} </h3>
+            <br />
+            <Button
+              disabled={disable}
+              className="card-button"
+              variant="primary"
+              onClick={() => {
+                dispatch(addCart(product));
+                play();
+                setDisable(true);
+              }}
+            >
+              Add To Cart
+            </Button>
+          </div>
+          <div class="col-12 col-lg-6 col-xl-6">
+            <div>
+              <img style={{ width: "450px" }} src={product[0].img} alt="" />
+            </div>
+          </div>
         </div>
       </div>
-    );
-  };
-  return <div classsName="cardss">{cardInfo.map(renderCard)}</div>;
+    </div>
+  );
 };
 
-export default BirthdayCard;
+export default BirthdayCardDetail;

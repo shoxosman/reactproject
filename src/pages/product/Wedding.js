@@ -1,4 +1,4 @@
-import WeddingCard from "./WeddingCrad";
+import WeddingCard from "../../components/WeddingCrad";
 const Wedding = () => {
   return (
     <div>

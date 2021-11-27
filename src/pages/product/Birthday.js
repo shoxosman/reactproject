@@ -1,4 +1,5 @@
-import BirthdayCard from "./BirthdayCard";
+import BirthdayCard from "../../components/BirthdayCard";
+
 const Birthday = () => {
   return (
     <div>

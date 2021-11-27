@@ -1,23 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  products: [
-    {
-      id: 1,
-      title: "uheduehdeudheud",
-      price: 25,
-      image:
-        "https://fyf.tac-cdn.net/images/products/large/TEV12-4.jpg?auto=webp&quality=80&width=590",
-    },
-  ],
-  cart: [],
-  currentItem: [],
+  value: [],
 };
 
 const TheCardsSlice = createSlice({
-  name: "card",
+  name: "cart",
   initialState,
-  reducers: {},
+  reducers: {
+    addCart: (state, action) => {
+      state.value.push(action.payload);
+    },
+    removeCart: (state, action) => {
+      state.value.forEach((product, index) => {
+        if (product.name === action.payload) {
+          state.value.splice(index, 1);
+        }
+      });
+    },
+  },
 });
 
+export const { addCart, removeCart } = TheCardsSlice.actions;
 export default TheCardsSlice.reducer;

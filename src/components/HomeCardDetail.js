@@ -1,5 +1,18 @@
-import { Card, Button } from "react-bootstrap";
-const SingleCard = () => {
+import React from "react";
+import { useParams } from "react-router";
+import { Button } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { addCart } from "../features/TheCardsSlice";
+import useSound from "use-sound";
+import { useState } from "react";
+const HomeCardDetail = () => {
+  const [disable, setDisable] = useState(false);
+  const dispatch = useDispatch();
+
+  const [play] = useSound(
+    "http://codeskulptor-demos.commondatastorage.googleapis.com/pang/pop.mp3"
+  );
+  let { name } = useParams();
   const cardInfo = [
     {
       title: "Autumn Arrangement",
@@ -64,27 +77,66 @@ const SingleCard = () => {
       price: 25.99,
       Text: "Same Day Delivary",
     },
+    {
+      title: "Purple Morning Melody",
+      body: "Purple and perfect, these sophisticated flowers will speak for themselves wherever you choose to send them. Our generously arranged purple roses and seasonal greens are guaranteed to brighten up any home, office or special event. Preciously presented in a square glass vase, our Purple Morning Melody is also topped off with a pretty purple bow. Purple is famously known to represent royalty, nobility, power, ambition and luxury.",
+      img: "https://fyf.tac-cdn.net/images/products/large/T68-3.jpg?auto=webp&quality=80&width=590",
+      price: 30.99,
+      Text: "Same Day Delivary",
+    },
+    {
+      title: "Vibrant Beauty Bouquet",
+      body: "Roses, lilies, athos, alstroemeria and Monte Casino blooms are celebrated superbly in all their vibrant beauty in this gleaming bouquet arranged in a clear gathering vase. Measures",
+      img: "https://fyf.tac-cdn.net/images/products/large/BF515-11K_D.jpg?auto=webp&quality=80&width=590",
+      price: 28.99,
+      Text: "Same Day Delivary",
+    },
+    {
+      title: "Rainbow Roses",
+      body: "Fill their day with color with a bouquet of mixed roses. A beautiful classic choice, mixed roses are the perfect gift to send to a friend or a loved one. With unique meanings for every color from red roses that mean love and courage to yellow roses that mean thank you and pink roses that mean joy, there is a message perfect for every occasion. So send your joy, love and affection today with a colorful rose bouquet. Flowers are delivered arranged and wrapped in a gift box. Blooms may take 2-3 days to open up, as shown in product photo. Upon arrival, remove flowers from wrap, trim ends of stems and place in vase with fresh water including flower food packet. Flower Freshness Guaranteed",
+      img: "https://fyf.tac-cdn.net/images/products/large/F-211.jpg?auto=webp&quality=80&width=590",
+      price: 25.99,
+      Text: "Same Day Delivary",
+    },
   ];
-
-  const renderCard = (card, index) => {
-    return (
-      <div className=" mt-5">
-        <div>
-          <Card style={{ width: "20rem" }}>
-            <Card.Img variant="top" src={card.img} />
-            <Card.Body>
-              <Card.Title>{card.title}</Card.Title>
-              <Card.Text>${card.price}</Card.Text>
-              <Card.Text>{card.Text}</Card.Text>
-              <Button className="card-button" variant="primary">
-                Read More
-              </Button>
-            </Card.Body>
-          </Card>
+  let product = cardInfo.filter((product) => {
+    return product.title === name;
+  });
+  return (
+    <div className="container home">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-lg-6 col-xl-6 mt-5">
+            <br />
+            <h2>{product[0].title}</h2>
+            <p>{product[0].body}</p>
+            <h3>${product[0].price} </h3>
+            <h3>{product[0].Text} </h3>
+            <br />
+            <Button
+              disabled={disable}
+              className="card-button"
+              variant="primary"
+              onClick={() => {
+                dispatch(addCart(product));
+                play();
+                setDisable(true);
+              }}
+            >
+              Add To Cart
+            </Button>
+          </div>
+          <div class="col-12 col-lg-6 col-xl-6">
+            <div>
+              <img style={{ width: "450px" }} src={product[0].img} alt="" />
+            </div>
+          </div>
         </div>
       </div>
-    );
-  };
-  return <div classsName="cardss">{cardInfo.map(renderCard)}</div>;
+    </div>
+  );
 };
-export default SingleCard;
+
+export default HomeCardDetail;
+
+/* http://codeskulptor-demos.commondatastorage.googleapis.com/pang/pop.mp3 */

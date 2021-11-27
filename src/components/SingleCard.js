@@ -1,18 +1,25 @@
-import { Card, Button } from "react-bootstrap";
-const WeddingCard = () => {
+import { Link } from "react-router-dom";
+import { Card, Button, Col, Row } from "react-bootstrap";
+import useSound from "use-sound";
+
+const SingleCard = () => {
+  const [play] = useSound(
+    "http://codeskulptor-demos.commondatastorage.googleapis.com/pang/pop.mp3"
+  );
+
   const cardInfo = [
     {
-      title: "Pearled Passions",
-      body: "A beautiful combination of stock, roses, tulips, orchids, carnations and sprengeri are gathered with delicate pearl strands to create the perfect bridesmaid bouquet. Hand created by a florist for delivery.",
-      img: "https://fyf.tac-cdn.net/images/products/large/BN78-11J.jpg?auto=webp&quality=80&width=590",
-      price: 41.99,
+      title: "Autumn Arrangement",
+      body: "Send this incredibly appealing autumn arrangement to a special someone in your life! Welcome the fall season with bright classic colors and warmth. Perfect for any day of the week or a special seasonal holiday, this floral arrangement is sure to bring a smile to their face!",
+      img: "https://fyf.tac-cdn.net/images/products/large/TFL11-2.jpg?auto=webp&quality=80&width=590",
+      price: 30.99,
       Text: "Same Day Delivary",
     },
     {
-      title: "Forever Yours Altar Arrangements",
-      body: "Create a spectacular altar scape with break away arrangement of green roses, orchids, hydrangea, snapdragons, gladiolus, hypericum, trachelium, amaranthus, and aspidistra.",
-      img: "https://fyf.tac-cdn.net/images/products/large/BN87-11J.jpg?auto=webp&quality=80&width=590",
-      price: 100.99,
+      title: "Southern Peach Bouquet",
+      body: "Looking for a modern twist on an old classic - this bouquet is just what you need! The Southern Peach Rose Bouquet brings you a subtle and sophisticated look with a bit of modern style. Charming and easy on the eyes, with beautiful pastel tones, this bouquet brings a room to life with it's artful appearance. Peach roses surrounded by white lilies, peach carnations and greenery - but the best part? All of this surrounds a green echeveria succulent. The fun new accessory to any bouquet, this delicate succulent adds a modern touch and is guaranteed to delight! This bouquet measures 15 1/4",
+      img: "https://fyf.tac-cdn.net/images/products/large/TEV55-6.jpg?auto=webp&quality=80&width=590",
+      price: 33.99,
       Text: "Same Day Delivary",
     },
     {
@@ -64,28 +71,59 @@ const WeddingCard = () => {
       price: 25.99,
       Text: "Same Day Delivary",
     },
+    {
+      title: "Purple Morning Melody",
+      body: "Purple and perfect, these sophisticated flowers will speak for themselves wherever you choose to send them. Our generously arranged purple roses and seasonal greens are guaranteed to brighten up any home, office or special event. Preciously presented in a square glass vase, our Purple Morning Melody is also topped off with a pretty purple bow. Purple is famously known to represent royalty, nobility, power, ambition and luxury.",
+      img: "https://fyf.tac-cdn.net/images/products/large/T68-3.jpg?auto=webp&quality=80&width=590",
+      price: 30.99,
+      Text: "Same Day Delivary",
+    },
+    {
+      title: "Vibrant Beauty Bouquet",
+      body: "Roses, lilies, athos, alstroemeria and Monte Casino blooms are celebrated superbly in all their vibrant beauty in this gleaming bouquet arranged in a clear gathering vase. Measures",
+      img: "https://fyf.tac-cdn.net/images/products/large/BF515-11K_D.jpg?auto=webp&quality=80&width=590",
+      price: 28.99,
+      Text: "Same Day Delivary",
+    },
+    {
+      title: "Rainbow Roses",
+      body: "Fill their day with color with a bouquet of mixed roses. A beautiful classic choice, mixed roses are the perfect gift to send to a friend or a loved one. With unique meanings for every color from red roses that mean love and courage to yellow roses that mean thank you and pink roses that mean joy, there is a message perfect for every occasion. So send your joy, love and affection today with a colorful rose bouquet. Flowers are delivered arranged and wrapped in a gift box. Blooms may take 2-3 days to open up, as shown in product photo. Upon arrival, remove flowers from wrap, trim ends of stems and place in vase with fresh water including flower food packet. Flower Freshness Guaranteed",
+      img: "https://fyf.tac-cdn.net/images/products/large/F-211.jpg?auto=webp&quality=80&width=590",
+      price: 25.99,
+      Text: "Same Day Delivary",
+    },
   ];
 
-  const renderCard = (card, index) => {
-    return (
-      <div className=" mt-5">
-        <div>
-          <Card style={{ width: "20rem" }}>
-            <Card.Img variant="top" src={card.img} />
-            <Card.Body>
-              <Card.Title>{card.title}</Card.Title>
-              <Card.Text>${card.price}</Card.Text>
-              <Card.Text>{card.Text}</Card.Text>
-              <Button className="card-button" variant="primary">
-                Read More
-              </Button>
-            </Card.Body>
-          </Card>
-        </div>
-      </div>
-    );
-  };
-  return <div classsName="cardss">{cardInfo.map(renderCard)}</div>;
+  return (
+    <div>
+      <Row xs={1} md={4} className="g-4 mt-5">
+        {cardInfo.map((product, index) => {
+          return (
+            <Col>
+              <Card className="flower-card" style={{ width: "20rem" }}>
+                <Card.Img variant="top" src={product.img} />
+                <Card.Body>
+                  <Card.Title>{product.title}</Card.Title>
+                  <Card.Text>${product.price}</Card.Text>
+                  <Card.Text>{product.Text}</Card.Text>
+                  <Button
+                    className="card-button"
+                    variant="primary"
+                    onClick={() => {
+                      play();
+                    }}
+                    as={Link}
+                    to={`/product/${product.title}`}
+                  >
+                    Read In Detail
+                  </Button>
+                </Card.Body>
+              </Card>
+            </Col>
+          );
+        })}
+      </Row>
+    </div>
+  );
 };
-
-export default WeddingCard;
+export default SingleCard;

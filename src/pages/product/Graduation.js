@@ -1,4 +1,4 @@
-import GraduationCard from "./GraduationCard";
+import GraduationCard from "../../components/GraduationCard";
 const Graduation = () => {
   return (
     <div>

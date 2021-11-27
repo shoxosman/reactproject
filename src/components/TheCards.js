@@ -4,7 +4,7 @@ import SingleCard from "./SingleCard";
 
 const TheCards = ({ products }) => {
   return (
-    <div className="mt-5">
+    <div className="mt-5 ">
       <h2>Products</h2>
       <hr />
       <div>
