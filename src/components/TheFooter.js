@@ -19,16 +19,24 @@ const TheFooter = () => {
 
         <div>
           <span className="me-5  text-reset">
-            <FaFacebook />
+            <a href="https://www.facebook.com/">
+              <FaFacebook />
+            </a>
           </span>
           <span className="me-5 text-reset">
-            <FaTwitter />
+            <a href="https://twitter.com/">
+              <FaTwitter />
+            </a>
           </span>
           <span className="me-5 text-reset">
-            <FaGoogle />
+            <a href="https://www.google.com/">
+              <FaGoogle />
+            </a>
           </span>
           <span className="me-5 text-reset">
-            <FaInstagram />
+            <a href="https://www.instagram.com/">
+              <FaInstagram />
+            </a>
           </span>
         </div>
       </section>
@@ -37,7 +45,9 @@ const TheFooter = () => {
         <div className="container text-center text-md-start mt-5">
           <div className="row mt-3">
             <div className="col-md-3 col-lg-4 col-xl-3 mx-auto ">
-              <h1 className="fw-bold ">Aster</h1>
+              <a href="/">
+                <h1 className="fw-bold ">Aster</h1>
+              </a>
               <p>
                 Aster is an online Shop founded in 2018.We have some years of
                 experience in
@@ -88,7 +98,7 @@ const TheFooter = () => {
               </p>
               <p>
                 <a href="/login" className="text-reset">
-                  Log IN
+                  Log In
                 </a>
               </p>
               <p>
