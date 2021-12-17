@@ -7,22 +7,15 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import About from "./pages/About";
-import Birthday from "./pages/product/Birthday";
+import GoToTop from "./components/GotToTop"
+
 import "./App.css";
 import ErrorPage from "./components/ErrorPage";
-import Wedding from "./pages/product/Wedding";
-import Graduation from "./pages/product/Graduation";
-import Flowers from "./pages/Categories/Flowers";
-import Ballons from "./pages/Categories/Ballons";
-import TedyBears from "./pages/Categories/TedyBears";
+
 import Cart from "./pages/Cart";
 import HomeCardDetail from "./components/HomeCardDetail";
-import BirthdayCardDetail from "./components/BirthdayCardDetail";
-import WeddingCardDetail from "./components/WeddingCardDetail";
-import GraduationCardDetail from "./components/GraduationCardDetail";
-import BalloonCardDetail from "./components/BalloonCardDetail";
-import FlowerCardDetail from "./components/FlowerCardDetail";
-import TedyBearCardDetail from "./components/TedyBearCradDetail";
+import ItemsOfSingleCategory from "./pages/ItemsOfSingleCategory";
+
 
 function App() {
   return (
@@ -31,33 +24,18 @@ function App() {
       <TheNavbar />
 
       {/* Setting up our routes */}
+        <GoToTop/>
       <Routes>
         <Route path="/" element={<Home />} />
-
+        <Route path="/product/:id" element={<HomeCardDetail />} />
         <Route
-          path="/product/Birthday/:name"
-          element={<BirthdayCardDetail />}
+          path="/products/filter/:category"
+          element={
+            <div className="card-div">
+   <ItemsOfSingleCategory/>
+            </div>
+          }
         />
-        <Route path="/product/Wedding/:name" element={<WeddingCardDetail />} />
-        <Route path="/product/Balloon/:name" element={<BalloonCardDetail />} />
-        <Route path="/product/Flower/:name" element={<FlowerCardDetail />} />
-        <Route
-          path="/product/TedyBear/:name"
-          element={<TedyBearCardDetail />}
-        />
-
-        <Route
-          path="/product/Graduation/:name"
-          element={<GraduationCardDetail />}
-        />
-
-        <Route path="/product/:name" element={<HomeCardDetail />} />
-        <Route path="/products/Birthday" element={<Birthday />} />
-        <Route path="/products/Wedding" element={<Wedding />} />
-        <Route path="/products/Graduation" element={<Graduation />} />
-        <Route path="/categories/Flowers" element={<Flowers />} />
-        <Route path="/categories/Balloons" element={<Ballons />} />
-        <Route path="/categories/TedyBears" element={<TedyBears />} />
 
         <Route path="/about" element={<About />} />
         {/* if the URL is /login  , render the Login component */}

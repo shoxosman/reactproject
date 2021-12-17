@@ -7,12 +7,13 @@ body {
   font-size: 1.2rem;
   font-weight: 500;
 }
+*{font-size: 1rem;}
 h1 {
   font-weight: 800;
   font-family: "Petemoss", cursive;
 }
 h2 {
-  font-weight: 800;
+  font-weight: 600;
   font-family: "Petemoss", cursive;
 
   font-size: 3rem;
@@ -28,6 +29,7 @@ hr {
   width: 100%;
   height: 85vh;
 }
+
 .navbar-bg {
   background-color: #cc99ff !important;
 }
@@ -100,4 +102,12 @@ hr {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.f-logo{
+  text-decoration-line:underline;
+  color: #cc99ff;
+}
+.f-icon{
+  color: black;
+  font-size: 1rem;
 }

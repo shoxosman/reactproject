@@ -6,6 +6,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link } from "react-router-dom";
 import { FaCartPlus } from "react-icons/fa";
 import { useSelector } from "react-redux";
+import CategoriesComp from "./CategoriesComp";
 export default function TheNavbar() {
   const cart = useSelector((state) => state.cart.value);
 
@@ -21,13 +22,13 @@ export default function TheNavbar() {
       <Container>
         {/* as={Link} means use react-router's Link component under the hood */}
         <Navbar.Brand as={Link} to="/">
-          <h1>Aster</h1>
+          <h2>Aster</h2>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/">
-              Home
+              <h5>Home</h5>
             </Nav.Link>
 
             <NavDropdown
@@ -36,15 +37,7 @@ export default function TheNavbar() {
               menuVariant="light"
               className="navbar-bg"
             >
-              <NavDropdown.Item as={Link} to="/products/Birthday">
-                Birthday
-              </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/products/Wedding">
-                Wedding
-              </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/products/Graduation">
-                Graduation
-              </NavDropdown.Item>
+              <CategoriesComp/>
             </NavDropdown>
             <NavDropdown
               id="nav-dropdown-dark-example"

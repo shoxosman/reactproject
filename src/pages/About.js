@@ -35,7 +35,7 @@ const About = () => {
           <div className="col-12 col-lg-6 col-xl-6">
             <div className="img">
               <img
-                src="https://fyf.tac-cdn.net/images/products/large/F-398.jpg?auto=webp&quality=80&width=500"
+                src="https://fyf.tac-cdn.net/images/products/large/F-398.jpg?auto=webp&quality=80&width=400"
                 alt=""
                 srcset=""
               />

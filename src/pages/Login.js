@@ -1,45 +1,44 @@
-import React, { useState } from "react";
+/* import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import { login, logout } from "../features/userSlice";
+import { useLoginMutation } from "../features/TheApiSlice";
+
+import jwt from "jsonjwttoken"
 
 export default function Login() {
-  // our local user state - taybat ba componenty login, initial value = object
-  const [user, setUser] = useState({});
 
-  const globalUser = useSelector((state) => state.user.value);
+  // our local email state - taybat ba componenty login, initial value = object
+  const [email, setEmail] = useState({});
+  const [password, setPassword] = useState({});
+  const [userLogin, { isError, isLoading, data, error }] = useLoginMutation();
 
-  const dispatch = useDispatch();
+ /*  const globalUser = useSelector((state) => state.email.value); */
 
-  // const globalState = useSelector(state => state.state)
-  const handleEmail = (e) => {
-    const emailValue = e.target.value;
-    let newState = { ...user };
-    newState.email = emailValue;
+ /*  const dispatch = useDispatch();
 
-    setUser(newState);
-  };
-
-  const handlePassword = (e) => {
-    const passwordValue = e.target.value;
-    let newState = { ...user };
-    newState.password = passwordValue;
-
-    setUser(newState);
-  };
+  
 
   return (
-    <>
+    
+    <>{JSON.stringify(data)}
+    {JSON.stringify(error)}
       <Container>
-        <Form className="mt-5">
+        <Form onSubmit={(e) => {
+              e.preventDefault();
+              userLogin({ email, password });
+            }} className="mt-5">
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control
+            value={email}
               type="email"
               placeholder="Enter email"
-              onChange={handleEmail}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
             />
             <Form.Text className="text-muted">
               We'll never share your email with anyone else.
@@ -49,9 +48,12 @@ export default function Login() {
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
             <Form.Control
+             value={password}
               type="password"
               placeholder="Password"
-              onChange={handlePassword}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
@@ -60,7 +62,7 @@ export default function Login() {
           <Button
             className="card-button"
             variant="primary"
-            onClick={() => dispatch(login(user))}
+            onClick={() => dispatch(login(email))}
           >
             Login
           </Button>
@@ -72,8 +74,9 @@ export default function Login() {
             Logout
           </Button>
         </Form>
-        {globalUser.email}
-      </Container>
+        { {globalUser.email} }*/
+      /*</Container>
     </>
   );
 }
+ */

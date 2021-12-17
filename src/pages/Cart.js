@@ -18,15 +18,15 @@ const Cart = () => {
       <h3 style={{ fontSize: "2rem" }}>Your Shopping Cart</h3>
       <div>
         {cart.map((product, index) => {
-          totalPrice += product[0].price;
+          totalPrice += product.price;
           console.log(totalPrice);
           return (
             <div className="cart-card mt-2">
               <Row className="container">
                 <Col>
-                  <h2 style={{ fontSize: "2rem" }}>{product[0].title}</h2>
-                  <h4>${product[0].price}</h4>
-                  <p>{product[0].Text}</p>
+                  <h2 style={{ fontSize: "2rem" }}>{product.name}</h2>
+                  <h4>${product.price}</h4>
+                  <p>{product.Text}</p>
                   <FaTrash
                     onClick={() => {
                       dispatch(removeCart(product.name));
@@ -36,7 +36,7 @@ const Cart = () => {
                   />
                 </Col>
                 <Col>
-                  <img style={{ width: "150px" }} src={product[0].img} alt="" />
+                  <img style={{ width: "150px" }} src={product.image} alt="" />
                 </Col>
               </Row>
             </div>

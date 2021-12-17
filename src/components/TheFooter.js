@@ -7,6 +7,7 @@ import {
   FaPhone,
   FaEnvelope,
 } from "react-icons/fa";
+import CategoriesComp from './CategoriesComp'
 
 const TheFooter = () => {
   const today = new Date();
@@ -20,22 +21,22 @@ const TheFooter = () => {
         <div>
           <span className="me-5  text-reset">
             <a href="https://www.facebook.com/">
-              <FaFacebook />
+              <FaFacebook className="f-icon" />
             </a>
           </span>
           <span className="me-5 text-reset">
             <a href="https://twitter.com/">
-              <FaTwitter />
+              <FaTwitter className="f-icon" />
             </a>
           </span>
           <span className="me-5 text-reset">
             <a href="https://www.google.com/">
-              <FaGoogle />
+              <FaGoogle className="f-icon" />
             </a>
           </span>
           <span className="me-5 text-reset">
             <a href="https://www.instagram.com/">
-              <FaInstagram />
+              <FaInstagram className="f-icon" />
             </a>
           </span>
         </div>
@@ -46,47 +47,18 @@ const TheFooter = () => {
           <div className="row mt-3">
             <div className="col-md-3 col-lg-4 col-xl-3 mx-auto ">
               <a href="/">
-                <h1 className="fw-bold ">Aster</h1>
+                <h1 className="f-logo">Aster</h1>
               </a>
               <p>
                 Aster is an online Shop founded in 2018.We have some years of
-                experience in
-                <h4>Same Day Flower Delivery to all places in Slemanyah.</h4>
+                experience in serving our customers
+                <h6>Same Day Flower Delivery to all places in Slemanyah.</h6>
               </p>
             </div>
 
             <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-4">Products</h6>
-              <p>
-                <a href="products/Birthday" className="text-reset">
-                  Birthday
-                </a>
-              </p>
-              <p>
-                <a href="/products/Wedding" className="text-reset">
-                  Wedding
-                </a>
-              </p>
-              <p>
-                <a href="/products/Graduation" className="text-reset">
-                  Graduation
-                </a>
-              </p>
-              <p>
-                <a href="/categories/Flowers" className="text-reset">
-                  Flowers
-                </a>
-              </p>
-              <p>
-                <a href="/categories/Balloons" className="text-reset">
-                  Balloons
-                </a>
-              </p>
-              <p>
-                <a href="/categories/TedyBears" className="text-reset">
-                  Tedy bears
-                </a>
-              </p>
+              <CategoriesComp/>
             </div>
 
             <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
