@@ -6,15 +6,17 @@ export default function CategoriesComp() {
 
     const { data = [], isLoading } = useGetCategoriesQuery();
 
+    if (isLoading) return <h3>loading...</h3>;
+
     return data.map((categories) => {
       return (
         <div>
           <Link to={`/products/filter/${categories.name}`}>
-            <div className="single-category">
+            <div className="single-category container">
   
-              <h5 className="category-comp-titles">
+              <h6 className="text-dark">
                 {categories.name}
-              </h5>
+              </h6>
   
             </div>
           </Link>

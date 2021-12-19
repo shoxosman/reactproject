@@ -21,8 +21,9 @@ function App() {
   return (
     <div className="App">
       {/* Navbar always shows no matter which route we're on */}
-      <TheNavbar />
-
+      
+      <TheNavbar  />
+        
       {/* Setting up our routes */}
         <GoToTop/>
       <Routes>

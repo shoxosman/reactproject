@@ -42,12 +42,12 @@ const TheFooter = () => {
         </div>
       </section>
 
-      <section className="">
+      <section >
         <div className="container text-center text-md-start mt-5">
           <div className="row mt-3">
             <div className="col-md-3 col-lg-4 col-xl-3 mx-auto ">
               <a href="/">
-                <h1 className="f-logo">Aster</h1>
+                <h1 className="footer-link" >Aster</h1>
               </a>
               <p>
                 Aster is an online Shop founded in 2018.We have some years of
@@ -100,7 +100,7 @@ const TheFooter = () => {
         className="text-center p-4"
         style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}
       >
-        <p>Copyright &copy; {today.getFullYear()} Aster</p>
+        <p >Copyright &copy; {today.getFullYear()} Aster</p>
       </div>
     </footer>
   );

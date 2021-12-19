@@ -1,10 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  value: {
-    email: "",
-    password: "",
-  },
+  user: localStorage.getItem("localUser") || undefined,
 };
 
 const userSlice = createSlice({
@@ -12,12 +9,12 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     addUser: (state, action) => {
-      state.user = action.user;
-      state.value.password = action.payload.password;
+      state.user = action.payload;
+      localStorage.setItem("localUser", JSON.stringify(action.payload));
     },
-    removeUser: (state) => {
-      state.value.email = "";
-      state.value.password = "";
+    removeUser: (state, action) => {
+      state.user = undefined;
+      localStorage.removeItem("localUser");
     },
   },
 });

@@ -30,6 +30,14 @@ export const productsApiSlice = createApi({
       getCategoryByCategory: builder.query({
         query: (category) => `/products?category=${category}`,
       }),
+      
+      register: builder.mutation({
+        query: ({ username, email, password }) => ({
+          url: `register`,
+          method: "POST",
+          body: { username, email, password },
+        }),
+      }),
      
     };
   },
@@ -41,5 +49,6 @@ export const {
   useGetProductByIdQuery,
   useGetCategoriesQuery,
   useGetCategoryByCategoryQuery,
-  useLoginMutation
+  useLoginMutation,
+   useRegisterMutation 
 } = productsApiSlice;

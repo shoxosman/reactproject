@@ -1,69 +1,106 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useRegisterMutation } from "../features/TheApiSlice";
+import jwt from "jsonwebtoken";
+import { useDispatch, useSelector } from "react-redux";
+import { addUser } from "../features/userSlice";
+import { FaUser,FaEnvelope ,FaLock,FaPaperPlane } from "react-icons/fa";
 
-import { useState } from "react";
+import { Navigate } from "react-router-dom";
 
 export default function Register() {
-  const [input, setInput] = useState({});
-
-  const handleChange = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    setInput((previousState) => ({ ...previousState, [name]: value }));
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    const userInfo = {
-      firstname: input.firstName,
-      lastname: input.lastName,
-      email: input.email,
-      password: input.password,
-    };
-
-    console.log(userInfo);
-
-    setInput("");
-  };
+  const { user } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [userRegister, { isError, isLoading, data, error }] =
+    useRegisterMutation();
+  useEffect(() => {
+    data && dispatch(addUser(jwt.decode(data?.token)));
+  }, [data]);
   return (
-    <div className="container register-div">
-      <form className="register-form" onSubmit={handleSubmit}>
-        <label>first name:</label>
-        <input
-          type="text"
-          name="firstName"
-          value={input.firstName }
-          onChange={handleChange}
-        />
 
-        <label>last name:</label>
-        <input
-          type="text"
-          name="lastName"
-          value={input.lastName }
-          onChange={handleChange}
-        />
 
-        <label>Email:</label>
-        <input
-          type="email"
-          name="email"
-          value={input.email}
-          onChange={handleChange}
-        />
+    <div>
+      {JSON.stringify(data)}
+      {isError && JSON.stringify(error)}
+      {user && <Navigate to="/" />}
+      <div id="warpper">
+        <div className="form-container">
+           < div className="header">
+            <h3>
+              Sign Up
+            </h3>
+            </div>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              userRegister({ username, email, password });
+            }}
+           
+          >
+           
+              <div className="input-group">
+                <FaUser className="form-icon"/>
+                <input
+                  value={username}
+                  onChange={(e) => {
+                    setUsername(e.target.value);
+                  }}
+                  type="text"
+                  required
+                  placeholder="Username"
+                />
+                <span className="bar"></span>
+              </div>
+              <div className="input-group">
+                <FaEnvelope className="form-icon"/>
+                <input
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                  required
+                  type="email"
+    
+                  placeholder="Email"
+                />
+                <span className="bar"></span>
+              </div>
+              <div className="input-group">
+                <FaLock className="form-icon"/>
+                <input
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                  required
+                  type="password"
+              
+                  placeholder="Password"
+                /><span className="bar"></span>
+              </div>
+              
+            
 
-        <label>password:</label>
-        <input
-          type="password"
-          name="password"
-          value={input.password}
-          onChange={handleChange}
-        />
+            <div className="div-button">
+              <button
+                type="submit"
+               className="form-button"
+              >
 
-        <button className="register-button mt-3" type="submit">
-          Register
-        </button>
-      </form>
+                <FaPaperPlane />
+              </button>
+            </div>
+            <div className="switch-login">
+              <span href="/login">Already have an account</span>
+              <a href="/login">Login</a>
+            </div>
+          </form>
+        </div>
+      </div>
+      
     </div>
+  
   );
 }

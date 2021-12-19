@@ -1,82 +1,108 @@
-/* import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
-import { login, logout } from "../features/userSlice";
+import React, { useEffect, useState } from "react";
 import { useLoginMutation } from "../features/TheApiSlice";
+import jwt from "jsonwebtoken";
+import { useDispatch, useSelector } from "react-redux";
+import { addUser } from "../features/userSlice";
+import { FaEnvelope ,FaLock,FaPaperPlane } from "react-icons/fa";
 
-import jwt from "jsonjwttoken"
+import { Navigate } from "react-router-dom";
 
 export default function Login() {
-
-  // our local email state - taybat ba componenty login, initial value = object
-  const [email, setEmail] = useState({});
-  const [password, setPassword] = useState({});
-  const [userLogin, { isError, isLoading, data, error }] = useLoginMutation();
-
- /*  const globalUser = useSelector((state) => state.email.value); */
-
- /*  const dispatch = useDispatch();
-
-  
-
-  return (
+  const { user } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [userLogin, {  data, error }] = useLoginMutation();
+ 
     
-    <>{JSON.stringify(data)}
-    {JSON.stringify(error)}
-      <Container>
-        <Form onSubmit={(e) => {
+  useEffect(() => {
+    data && dispatch(addUser(jwt.decode(data?.token)));
+  }, [data]);
+  return (
+   
+
+
+  <div>
+      {JSON.stringify(jwt.decode(data?.token))}
+      {JSON.stringify(error)}
+      {user && <Navigate to="/" />}
+      <div id="warpper">
+        <div className="form-container">
+           < div className="header">
+            <h4>
+            Login to your account
+            </h4>
+            </div>
+          <form
+            onSubmit={(e) => {
               e.preventDefault();
               userLogin({ email, password });
-            }} className="mt-5">
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control
-            value={email}
-              type="email"
-              placeholder="Enter email"
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
-            />
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
-          </Form.Group>
+            }}
+           
+            action="#"
+            method="POST"
+          >
+            
+            <div className="input-group">
+            <FaEnvelope className="form-icon"/>
+              
+                
+                <input
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                  id="email-address"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  required
+                  placeholder="Email address"
+                />
+              <span className="bar"></span>
+              </div>
+          
+              <div className="input-group">
+              <FaLock className="form-icon"/>
+                <input
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                  id="password"
+                  name="password"
+                  type="password"
+                  autoComplete="current-password"
+                  required
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-             value={password}
-              type="password"
-              placeholder="Password"
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Remember me" />
-          </Form.Group>
-          <Button
-            className="card-button"
-            variant="primary"
-            onClick={() => dispatch(login(email))}
-          >
-            Login
-          </Button>
-          <Button
-            variant="primary"
-            className="card-button"
-            onClick={() => dispatch(logout())}
-          >
-            Logout
-          </Button>
-        </Form>
-        { {globalUser.email} }*/
-      /*</Container>
-    </>
+                  placeholder="Password"
+                />
+                <span className="bar"></span>
+              </div>
+           
+
+
+              <div className="div-button">
+              <button
+                type="submit"
+               className="form-button"
+              >
+
+                <FaPaperPlane />
+              </button>
+            </div>
+            <div className="switch-login">
+              <span >Don't have an account</span>
+              <a href="/register">Login</a>
+            </div>
+          </form>
+        </div>
+      </div>
+      </div>
+      
+     
+     
+  
   );
+
 }
- */

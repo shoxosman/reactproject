@@ -17,7 +17,9 @@ const TheCards = () => {
   if (data) {
   return (
     <div>
-      <Row xs={1} md={4} className="g-4 mt-5">
+      <h1>Products</h1>
+      <hr/>
+      <Row xs={1} sm={1} xl={4} md={4} className="g-4 mt-5">
         {data.map((product, index) => {
           return (
             <SingleCard product={product} key={index} />

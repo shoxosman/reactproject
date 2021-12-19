@@ -1,5 +1,4 @@
-/* Write your global CSS here */
-/* Note that you don't need to do Normalization as react-bootstrap does it for us */
+
 body {
   padding: 0;
   margin: 0%;
@@ -7,6 +6,10 @@ body {
   font-size: 1.2rem;
   font-weight: 500;
 }
+.App {
+  padding-top: 100px;
+} 
+
 *{font-size: 1rem;}
 h1 {
   font-weight: 800;
@@ -21,7 +24,10 @@ h2 {
 hr {
   width: 20rem;
 }
-
+a:link{
+  text-decoration: none;
+  color: #000;
+}
 .App {
   height: 100vh;
 }
@@ -30,18 +36,16 @@ hr {
   height: 85vh;
 }
 
+  
 .navbar-bg {
-  background-color: #cc99ff !important;
+  background-color: #fff !important;
+  box-shadow:1px 1px 1px 1px rgba(0 ,0 ,0,.1);
 }
 .card-button {
   background-color: #cc99ff !important;
   border-color: #9c5bdd;
 }
-.register-button {
-  background-color: #cc99ff !important;
-  border-color: #9c5bdd;
-  width: 100px;
-}
+
 
 /* =======================ERROR PAGE=============================== */
 .error {
@@ -61,34 +65,155 @@ hr {
 }
 /* ======================= REGISTER FORM=============================== */
 
-.register-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  justify-content: space-around;
-  width: 70%;
-}
-.register-div {
+#warpper{
+  width: 90%;
+  height: 100vh;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 90px;
+  
 }
-.App {
-  padding-top: 100px;
+.header{
+  transform:translateY(-7rem);
+  display: flex;
+  justify-content: center;
+}
+.form-container{
+  width: 100%;
+  max-width: 25rem;
+  background-color:#fff;
+  position: relative;
+   padding:10rem 0 ; 
+  
+  box-shadow: 0 1px 1.5rem rgba(0 ,0 ,0,.1);
+  border-radius: 1rem;
+  z-index: 1;
+  height: 30rem;
+}
+.form-container::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left:0;
+  width: 100%;
+  height: 25rem;
+  background: linear-gradient(to left ,#cc99ff , #d3aef8);
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 100%;
+  z-index: -1;
+height: 10rem;
+}
+ .form-heading{
+   color: #fff;
+   font-size: 2.5rem;
+   position: absolute;
+   top:3.5rem;
+   left: 10rem;
+   
+ }
+form{
+  transform: translateX(10rem);
+  padding: 2rem 0;
+  background-color: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 1px 1.5rem rgba(0 ,0 ,0,.1);
+}
+.input-group{
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  align-items: baseline;
+}
+.input-group input{
+  position: relative;
+  width: 90%;
+  padding:0.6rem 0 ;
+  margin-top: 0.4rem;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  color: #000;
+
+} 
+.input-group .bar{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0 ,0 ,0,.1);
+  width: 100%;
+  height: 1px;
+}
+.form-icon{
+  font-size: 1.3rem;
+  margin-right: 1rem;
+  color: #9c5bdd;
+}
+.input-group .bar::before{
+  content: '';
+  position: absolute;
+  background-color:#9c5bdd ;
+  width: 0;
+  height: 2px;
+  transition: width 650ms;
+}
+.input-group input:focus + .bar::before{
+  width: 100%;
+}
+.div-button{
+  display: flex;
+  justify-content: center;
+  }
+
+.form-button{
+  padding: .5rem 2rem;
+  margin-top: 15px;
+  border-radius: 1rem;
+  background: linear-gradient(to left ,#cc99ff , #d3aef8);
+  border: 0;
+ 
+}
+.form-button:focus,
+.form-button:hover{
+  background: linear-gradient(to right ,#cc99ff , #bcb4c4);
+}
+.switch-login{
+  display: flex;
+  justify-content: center;
+}
+.switch-login span{
+text-decoration: none;
+color: #a1a1a1;
+
+}
+.switch-login  a{
+  color: #9c5bdd;
+
+}
+.switch-login a:hover{
+  padding-bottom: 2px;
+  border-bottom: 2px solid #9c5bdd;
 }
 
+/* ======================= FOOTER=============================== */
 .cart-card {
-  border: 1px solid black;
-  width: 50%;
-  height: 180px;
+  width: 70%;
+  height: 170px;
 }
+.flower-card{
+  width: 16.5rem ;height:30rem
+}
+
 .flower-card:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .footer {
   background-color: #d5d5e0;
-  margin-top: 100px;
+  margin-top: 80px;
+}
+.footer-link{
+  color: #000;
 }
 .social-media {
   display: flex;
@@ -103,11 +228,41 @@ hr {
   align-items: center;
   justify-content: center;
 }
-.f-logo{
-  text-decoration-line:underline;
-  color: #cc99ff;
-}
 .f-icon{
-  color: black;
-  font-size: 1rem;
+  color:#000;
 }
+.cart-hr{
+  width: 70%;
+}
+.price-list{
+  margin-top: 100px;
+}
+.cart-row{
+  margin-top: 5px;
+}
+@media screen and (max-width: 700px){
+  .form-container::before{
+    height: 10rem;
+  }
+  .form-heading{
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  form{
+    border-radius: initial;
+    transform: initial;
+    box-shadow: none;
+  }
+  .cart-card {
+    width: 100%;
+    height: 170px;
+  }
+  .cart-hr{
+    width: 100%;
+  }
+ .cart-row{
+  margin-top: 60px;
+}
+}
+
+/* ======================= SHOPPING CART=============================== */
