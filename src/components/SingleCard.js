@@ -9,7 +9,7 @@ const SingleCard = ({product , index}) => {
 
           return (
             <Col key={index}>
-              <Card className="flower-card" style={{ width: "16.5rem" ,height:"30rem"}}>
+              <Card className="flower-card">
                 <Card.Img variant="top" src={product.image} />
                 <Card.Body>
                   <Card.Title><h6>{product.name}</h6></Card.Title>
@@ -20,9 +20,10 @@ const SingleCard = ({product , index}) => {
                     variant="primary"
                     onClick={() => {
                       play();
+                      
                     }}
-                    as={Link}
-                    to={`/product/${product._id}`}
+                   as={Link}
+                    to={`/product/${product._id}`} 
                   >
                     Read In Detail
                   </Button>

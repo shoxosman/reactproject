@@ -23,7 +23,7 @@ export default function Login() {
 
 
   <div>
-      {JSON.stringify(jwt.decode(data?.token))}
+      {/* {JSON.stringify(jwt.decode(data?.token))} */}
       {JSON.stringify(error)}
       {user && <Navigate to="/" />}
       <div id="warpper">

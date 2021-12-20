@@ -29,7 +29,7 @@ export default function TheNavbar() {
       <Container>
         
         <Navbar.Brand as={Link} to="/">
-          <span><img src="https://lh3.googleusercontent.com/proxy/VlGriAykwEXpOh8ZvY6aiDD9RTEuG09V_z8v0MBVdXkI0Yo3930zeTRD-YE99ylIWXa24kNmMN0VRqyyUD97D_UklA"  style={{width:"50px"}}  alt=""/></span>
+          <span><img src="https://cutewallpaper.org/21/purple-flowers-white-background/Dark-Purple-Flower-White-Background-Wallpapers-Jobs.jpg"  style={{width:"50px"}}  alt=""/></span>
          
         </Navbar.Brand>
         <Navbar.Brand as={Link} to="/">
